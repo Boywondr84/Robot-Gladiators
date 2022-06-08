@@ -19,9 +19,6 @@ var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? En
 if (promptFight === "fight" || promptFight === "FIGHT") {
 console.log("FIGHT" || "fight");
 
-
-fight();
-
 // Subtract the value of 'playerAttack' from the value of 'enemyHealth' and use that result to update the value in the 'enemyHealth' variable
 enemyHealth = enemyHealth - playerAttack;
 // Log a resulting message to the console so we know that it worked.
@@ -51,17 +48,21 @@ else {
     window.alert(playerName + " still has " + playerHealth + " health left");
 }
 // If player chooses to skip
-}
-else if(promptFight === "SKIP" || promptFight === "skip") {
+} else if(promptFight === "SKIP" || promptFight === "skip") {
     playerName + " has chosen to skip";
     var confirmSkip = window.confirm("Are you sure you want to leave the fight?");
 if (confirmSkip) {
     window.alert(playerName + " has decided to quit");
-    playerMoney = playerMoney - 2;
-}else {
-    fight();
+    console.log(playerMoney = playerMoney - 2 + " coins left");
+    window.alert(playerName + " forfeited 2 coins");
 }
 
-}else {
+if (!confirmSkip) {
+    var playerName = window.prompt("What is your robot's name?");
+}
+
+}
+else {
         window.alert("You must choose another option. Try again!");
-    }
+    fight();   }
+;
