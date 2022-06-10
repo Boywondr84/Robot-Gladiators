@@ -15,7 +15,8 @@ var enemyAttack = 12;
 
 //Function expression
     var fight = function(enemyName) {
-        window.alert("Welcome To Robot Gladiators!!");
+        //window.alert("Welcome To Robot Gladiators!!");
+        while(enemyHealth > 0) {
     //console.log("success");
     
 
@@ -42,7 +43,7 @@ var enemyAttack = 12;
     
 //Player health check
     if (playerHealth <= 0) {
-        console.log(playerName + " is still alive");
+        console.log(playerName + " has died");
     } else { 
         console.log(playerName + " now has " + playerHealth + " health remaining ");}
 //If player skips
@@ -60,11 +61,15 @@ var enemyAttack = 12;
         fight();
         }
     }
-
+    
+    }
 
 };
 
 // Function Loop called
     for (i = 0; i < enemyNames.length; i++) {
+        var pickedEnemyName = enemyNames[i];
+        enemyHealth = 50;
+        //debugger;
         fight(enemyNames[i]);
 }
