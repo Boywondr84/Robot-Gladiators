@@ -23,7 +23,7 @@ var enemyAttack = 12;
 
     var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose.");
     //console.log(promptFight);
-    if (promptFight === "FIGHT" || promptFight === "fight") 
+    if (promptFight === "FIGHT" || promptFight === "fight")
 {
 //continue with code
 //Player attacks
