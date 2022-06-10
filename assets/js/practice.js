@@ -16,7 +16,7 @@ var enemyAttack = 12;
 //Function expression
     var fight = function(enemyName) {
         //window.alert("Welcome To Robot Gladiators!!");
-        while(enemyHealth > 0) {
+        while(enemyHealth > 0 && playerHealth > 0) {
     //console.log("success");
     
 
@@ -32,7 +32,10 @@ var enemyAttack = 12;
     
 //Enemy health check
     if (enemyHealth <= 0) {
-        console.log(enemyName + " has died");
+        window.alert(enemyName + " has died");
+        console.log(playerMoney = playerMoney + 20);
+        window.alert(playerName + " earned 20 coins!");
+        break;
     } else {
         console.log(enemyName + " now has " + enemyHealth + " health remaining ");
     }
@@ -43,7 +46,8 @@ var enemyAttack = 12;
     
 //Player health check
     if (playerHealth <= 0) {
-        console.log(playerName + " has died");
+        window.alert(playerName + " has died");
+        break;
     } else { 
         console.log(playerName + " now has " + playerHealth + " health remaining ");}
 //If player skips
@@ -51,8 +55,9 @@ var enemyAttack = 12;
     var confirmSkip = window.confirm("Are you sure you want to quit?");
         if (confirmSkip) {
             window.alert(playerName + " has decided to skip this fight. Goodbye!");
-            playerMoney = playerMoney - 2;
+            playerMoney = playerMoney - 10;
             console.log(playerName + " now has " + playerMoney + " coins left.");
+            break;
         }else {//cancelling confirmSkip window
             fight();
         }
