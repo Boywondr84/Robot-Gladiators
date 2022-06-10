@@ -75,6 +75,12 @@ var enemyAttack = 12;
     for (i = 0; i < enemyNames.length; i++) {
         var pickedEnemyName = enemyNames[i];
         enemyHealth = 50;
+    if (playerHealth > 0) {
+        window.alert("Welcome To Robot Gladiators!! Round " + ( i + 1 )); 
+    }else {
+        window.alert(playerName + " has been defeated! GAME OVER! ");
+        break;
+    }
         //debugger;
-        fight(enemyNames[i]);
+        fight(pickedEnemyName);
 }
