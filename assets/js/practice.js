@@ -1,3 +1,11 @@
+//GAME FUNCTIONS
+var randomNumber = function(min, max) {
+    var value = Math.floor(Math.random() * (max - min + 1) + min);
+
+    return value;
+};
+
+
 // Player robot name and attributes
 
 var playerName = window.prompt("What is your robot's name?");
@@ -27,7 +35,9 @@ var fight = function (enemyName) {
         if (promptFight === "FIGHT" || promptFight === "fight") {
             //continue with code
             //Player attacks
-            enemyHealth = enemyHealth - playerAttack;
+            //Generate random damage value based on player's attack power
+            var damage = randomNumber(playerAttack - 3, playerAttack);
+            enemyHealth = Math.max(0, enemyHealth - damage);
             console.log(playerName + " attacked " + enemyName + ". ");
 
             //Enemy health check
@@ -41,7 +51,8 @@ var fight = function (enemyName) {
             }
 
             //Enemy attacks
-            playerHealth = playerHealth - enemyAttack;
+            var damage = randomNumber(enemyAttack - 3, enemyAttack);
+            playerHealth = Math.max(0, playerHealth - damage);
             console.log(enemyName + " attacked " + playerName + ". ");
 
             //Player health check
@@ -56,7 +67,7 @@ var fight = function (enemyName) {
             var confirmSkip = window.confirm("Are you sure you want to quit?");
             if (confirmSkip) {
                 window.alert(playerName + " has decided to skip this fight. Goodbye!");
-                playerMoney = playerMoney - 10;
+                playerMoney = Math.max(0, playerMoney - 10);
                 console.log(playerName + " now has " + playerMoney + " coins left.");
                 break;
             } else {//cancelling confirmSkip window
@@ -78,7 +89,7 @@ var startGame = function () { //debugger
         if (playerHealth > 0) {
             window.alert("Welcome To Robot Gladiators!! Round " + (i + 1));
             var pickedEnemyName = enemyNames[i];
-            enemyHealth = 50;
+            enemyHealth = randomNumber(40, 60);
             fight(pickedEnemyName);
             
             //If not at final enemy in the array
